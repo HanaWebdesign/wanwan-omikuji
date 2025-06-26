@@ -3,7 +3,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+    min-height: 100vh;
   margin: 0;
   background-color: #f0f0f0;
   flex-direction: column; /* ボタンとカードを縦に並べる */
@@ -130,34 +130,52 @@ h1 {
 }
 
 @media screen and (max-width: 600px) {
+  body {
+    padding: 10px;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
   .cards {
     flex-direction: column;
     align-items: center;
+    gap: 15px; /* カード間の余白を自然に */
   }
 
   .card {
-    width: 80vw;
-    height: 45vh;
-    margin: 10px 0;
+    width: 85vw;
+    max-width: 300px;
+    aspect-ratio: 2 / 3;
+    height: auto;
+    margin: 0;
   }
 
   .card.center {
-    transform: scale(1.1) !important;
+    transform: none !important; /* スマホでは拡大なしで見た目を安定 */
   }
 
-  #resetButton,
-  #tweetButton {
-    width: 80vw;
-    font-size: 16px;
-    margin-top: 10px;
+  .card-image {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
   }
 
   #instruction {
-    font-size: 20px;
+    font-size: 18px;
+    margin: 15px 0;
   }
 
   h1 {
     font-size: 24px;
+    margin: 10px 0 20px;
     text-align: center;
+  }
+
+  #resetButton,
+  #tweetButton {
+    width: 85vw;
+    max-width: 300px;
+    font-size: 16px;
+    margin-top: 10px;
   }
 }
